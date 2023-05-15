@@ -1,0 +1,284 @@
+<link rel="stylesheet" href="/css/project_detail.css">
+
+
+
+
+<div class="projects-container">
+
+    <div class="project-data">
+        <div class="name">
+            Title :
+            <%= project.name %>
+
+        </div>
+        <div class="auther">
+            Auther:
+            <%= project.auther %>
+        </div>
+
+        <hr>
+        <div class="discription">
+            <p>
+                <span>Discription: </span>
+                <%= project.discription %>
+
+            </p>
+        </div>
+    </div>
+
+    <div id="show-login" class="create-project-btn">
+        <span> &#43; </span><input type="button" value="Create Project ">
+        <div class="center">
+            <!-- <button id="show-login">Login</button> -->
+        </div>
+    </div>
+    <div class="create-issue">
+        <div class="popup">
+            <div class="close-btn">&times;</div>
+            <form id="new-issue-form" action="/createIssue/issue" method="post">
+
+                <div class="form">
+                    <h2>Create Issue</h2>
+
+                    <div class="form-element">
+                        <label for="title">Title</label>
+                        <input name="issue" type="text" id="title" placeholder="Title" required>
+                    </div>
+                    <div class="form-element">
+                        <label for="discription">Discription</label>
+                        <textarea name="discription" id="discription" cols="40" rows="6"
+                            placeholder="Discribe your issue..." required></textarea>
+
+                    </div>
+                    <input type="hidden" name="project" value="<%= project._id%>">
+
+                    <!-- <h1>Dropdown Checkboxes</h1> -->
+
+                    <div class="dropdown" data-control="checkbox-dropdown">
+                        <label class="dropdown-label">Select</label>
+
+                        <div class="dropdown-list">
+                            <!-- <a href="#" data-toggle="check-all" class="dropdown-option">
+                                Check All
+                            </a> -->
+
+                            <label class="dropdown-option">
+                                <input type="checkbox" name="labels" value="bug" />
+                                bug
+                            </label>
+
+                            <label class="dropdown-option">
+                                <input type="checkbox" name="labels" value="ui enhancement" />
+                                ui enhancement
+                            </label>
+
+                            <label class="dropdown-option">
+                                <input type="checkbox" name="labels" value="documentation" />
+                                documentation
+                            </label>
+
+                            <label class="dropdown-option">
+                                <input type="checkbox" name="labels" value="enhancement" />
+                                enhancement
+                            </label>
+
+                            <label class="dropdown-option">
+                                <input type="checkbox" name="labels" value="invalid" />
+                                invalid
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-element">
+                        <label for="Auther">Auther</label>
+                        <input name="auther" type="text" id="auther" placeholder="Auther name" required>
+                    </div>
+
+                    <div class="form-element">
+                        <button id="submit-btn" type="submit">Create Issue</button>
+                    </div>
+
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <div class="issue-search-bar">
+        <svg class="svg-icon search-icon" aria-labelledby="title desc" role="img" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 19.9 19.7">
+            <title id="title">Search Icon</title>
+            <desc id="desc">A magnifying glass icon.</desc>
+            <g class="search-path" fill="none" stroke="#848F91">
+                <path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4" />
+                <circle cx="8" cy="8" r="7" />
+            </g>
+        </svg>
+        <input id="issue-search" data-projectId="<%= project._id%>" type="text" name="" placeholder="search...">
+    </div>
+    <div class="filter-container">
+        <div class="filter-title">
+            Filter By: 
+        </div>
+        <div class="filter-by-label">
+            <input id="label-btn" type="button" value="Label ">
+
+            <div class="popup label-popup">
+                <div class="close-btn">&times;</div>
+                <form id="label-filter-form" action="/filterlabel/labels" method="get">
+    
+                    <div class="form">
+                        <h2>Filter by labels</h2>
+                       
+                        <input type="hidden" name="project" value="<%= project._id%>">
+    
+    
+                        <div class="dropdown" data-control="checkbox-dropdown">
+                            <label class="dropdown-label">Select</label>
+    
+                            <div class="dropdown-list">
+                               
+    
+                                <label class="dropdown-option">
+                                    <input type="checkbox" name="labels" value="bug" />
+                                    bug
+                                </label>
+    
+                                <label class="dropdown-option">
+                                    <input type="checkbox" name="labels" value="ui enhancement" />
+                                    ui enhancement
+                                </label>
+    
+                                <label class="dropdown-option">
+                                    <input type="checkbox" name="labels" value="documentation" />
+                                    documentation
+                                </label>
+    
+                                <label class="dropdown-option">
+                                    <input type="checkbox" name="labels" value="enhancement" />
+                                    enhancement
+                                </label>
+    
+                                <label class="dropdown-option">
+                                    <input type="checkbox" name="labels" value="invalid" />
+                                    invalid
+                                </label>
+                            </div>
+                        </div>
+    
+                        
+    
+                        <div class="form-element">
+                            <button id="submit-btn" type="submit">Filter</button>
+                        </div>
+    
+                    </div>
+                </form>
+    
+            </div>
+        </div>
+        <div class="filter-by-auther">
+            <div class="btn-filter">
+                <input id="auther-btn" type="button" value=" Auther ">
+
+            </div>
+        
+            <div class="popup auther-popup">
+                <div class="close-btn">&times;</div>
+                <form id="auther-filter-form" action="/filter/auther" method="get">
+    
+                    <div class="form">
+                        <h2>Filter by Auther</h2>
+                        
+                        <input type="hidden" name="project" value="<%= project._id%>">
+    
+                        <!-- <h1>Dropdown Checkboxes</h1> -->
+    
+                        <!-- <div class="form-element">
+                            <label for="title">Title</label>
+                            <input name="issue" type="text" id="title" placeholder="Title" required>
+                        </div> -->
+                        
+                        <div class="select">
+                            <select id="select-auther" name="auther">
+                                <option id="hidden-text" value="hide" hidden>-- Select Auther --</option>
+                                <% for (i of auther) { %>
+
+                                    <option   value="<%= i.auther %>"> <%= i.auther %> </option>
+
+                                <%} %>
+                              <!-- <option value="1">Pure CSS Select</option>
+                              <option value="2">No JS</option>
+                              <option value="3">Nice!</option> -->
+                            </select>
+                          </div>
+                        
+    
+                        <!-- <div class="form-element">
+                            <label for="Auther">Auther</label>
+                            <input name="auther" type="text" id="auther" placeholder="Auther name" required>
+                        </div> -->
+    
+                        <div class="form-element">
+                            <button id="submit-btn" type="submit">Filter</button>
+                        </div>
+    
+                    </div>
+                </form>
+    
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- /Issue container  -->
+<div class="issue-conatiner">
+    
+    <% for(issue of issues){ %>
+
+        <!-- including partials  -->
+        <%- include('_issue_list') -%>
+
+            <% }%>
+
+    <!-- <div class="issue-list-container">
+
+        <div class="labels">
+            <p>Bug</p>
+            <p>Ui Enhancement</p>
+            <p>Enhancement</p>
+            <p>Ui Enhancement</p>
+            <p>Enhancement</p>
+            <p>Ui Enhancement</p>
+        </div>
+        <div class="issue-list">
+            <div class="name-auther">
+
+                <div class="issue-title">
+                    Issue:
+                </div>
+                <div class="auther-name">
+                </div>
+
+            </div>
+            <hr>
+            <div class="discription-container">
+            </div>
+        </div>
+
+    </div>
+
+    <hr class="hr"> -->
+
+
+</div>
+
+
+
+
+</div>
+
+
+<script src="/js/project_detail.js"></script>

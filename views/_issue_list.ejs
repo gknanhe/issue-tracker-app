@@ -1,0 +1,40 @@
+
+
+
+
+<div class="issue-list-container">
+
+    <div class="labels">
+
+        <% for(var i = 0; i < issue.labels.length; i++){ %>
+            <p id="<%= issue.labels[i] %>" data-label="<%= issue.labels[i] %>">  <%= issue.labels[i] %></p>
+        <% } %>
+
+        <!-- <p>Bug</p>
+        <p>Ui Enhancement</p>
+        <p>Enhancement</p>
+        <p>Ui Enhancement</p>
+        <p>Enhancement</p>
+        <p>Ui Enhancement</p> -->
+    </div>
+    <div class="issue-list">
+        <div class="name-auther">
+
+            <div class="issue-title">
+                Issue: <%= issue.issue %>
+            </div>
+            <div class="auther-name">
+                Auther : <%= issue.auther %>
+            </div>
+
+        </div>
+        <hr>
+        <div class="discription-container">
+            Discription : <%= issue.discription %>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- <hr class="hr"> -->

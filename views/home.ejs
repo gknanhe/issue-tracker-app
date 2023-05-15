@@ -1,0 +1,92 @@
+<link rel="stylesheet" href="/css/home.css">
+
+
+
+<div class="projects-container">
+
+    <div id="show-login" class="create-project-btn">
+        <span> &#43; </span><input type="button" value="Create Project ">
+        <div class="center">
+            <!-- <button id="show-login">Login</button> -->
+        </div>
+    </div>
+
+
+    <!-- model form  -->
+
+
+    <div class="popup">
+        <div class="close-btn">&times;</div>
+        <form id="new-project-form" action="/create/project" method="post">
+
+            <div class="form">
+                <h2>Create Project</h2>
+                <div class="form-element">
+                    <label for="project">Project</label>
+                    <input name="name" type="text" id="project" placeholder="Project name" required>
+                </div>
+                <div class="form-element">
+                    <label for="Auther">Auther</label>
+                    <input name="auther" type="text" id="auther" placeholder="Auther name" required>
+                </div>
+                <div class="form-element">
+                    <label for="discription">Discription</label>
+                    <textarea name="discription" id="discription" cols="40" rows="6" required></textarea>
+
+                </div>
+                <div class="form-element">
+                    <button id="submit-btn" type="submit">Create Project</button>
+                </div>
+
+            </div>
+        </form>
+
+    </div>
+
+    <!--  -->
+    <div id="project-list-container">
+
+        <% for( project of projects ) { %>
+            <!-- including partials -->
+            <!-- <%= project %> -->
+            <%- include('_projects_list') -%>
+
+    <% } %>
+
+    </div>
+   
+
+    <!-- <div class="issue-conatiner">
+        <div class="project-name">
+
+            <p>
+                Project Name : Calculator
+            </p>
+        </div>
+        <div class="auther-discription">
+            <div class="authername">
+                <p>
+                    Auther: <span>Ganesh Nanhe</span>
+                </p>
+            </div>
+            <div class="discription">
+                <p>
+                    Discription: <span>This is an calculator aplication</span>
+                </p>
+            </div>
+        </div>
+        <div class="open-btn">
+            <input type="button" value="Open">
+        </div>
+    </div> -->
+
+
+
+
+</div>
+
+
+<!-- importing this scripts for creating the comments  -->
+
+
+<script src="/js/home.js"></script>

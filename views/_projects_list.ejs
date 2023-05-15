@@ -1,0 +1,26 @@
+<div class="issue-conatiner">
+    <div class="project-name">
+
+        <p>
+            Project Name : <%= project.name %>
+        </p>
+    </div>
+    <div class="auther-discription">
+        <div class="authername">
+            <p>
+                Auther: <span> <%= project.auther %></span>
+            </p>
+        </div>
+        <!-- <div class="discription">
+            <p>
+                Discription: <span> <%= project.discription %></span>
+            </p>
+        </div> -->
+    </div>
+    <div class="open-btn">
+        <a href="/project/showProject/<%= project._id %>">
+            <input type="button" value="Open">
+        </a>
+        
+    </div>
+</div>
