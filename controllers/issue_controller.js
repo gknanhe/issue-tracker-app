@@ -178,7 +178,7 @@ module.exports.searchData = async function (req, res) {
     // let serach = await  Issue.find({
     //     $or: [ {issue : { $regex: "fix", $options: 'i' }}, { project: req.params.id } ]
     // });
-    console.log(' issue', issue)
+    // console.log(' issue', issue)
 
     console.log(req.params, 'params');
 

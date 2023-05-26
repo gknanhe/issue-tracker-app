@@ -18,7 +18,8 @@ module.exports.home = async function(req, res){
             projects : projects,
         });
     } catch (error) {
-        
+        console.log('Error', error);
+
     }
     
         
