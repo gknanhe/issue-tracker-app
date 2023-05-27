@@ -2,7 +2,7 @@
 # Issue Tracker
 
 The Issue Tracker project is a web application designed to help users manage and track issues for their projects. Users can create projects, add issues to those projects, and categorize issues using labels. The application provides a user-friendly interface for creating, viewing, and searching issues. It also offers filtering options based on the author's name and issue labels.
-
+## Hoisted link [https://lovely-shoe-bat.cyclic.app/](https://lovely-shoe-bat.cyclic.app/)
 ## Installation
 
 1. Clone the repository:
